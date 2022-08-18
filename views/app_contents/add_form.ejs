@@ -1,0 +1,24 @@
+<div class="form__container">
+  <form class="form__box" action="/add-item" method="post">
+    <label class="form__label" for="input">New Item</label
+    ><input type="hidden" value="<%= csrfToken %>" name="_csrf" /><input
+      class="form__input"
+      type="text"
+      id="input"
+      name="input"
+    />
+    <input type="hidden" name="name" value="<%= listDirectory %>" />
+    <button class="form__button" type="submit">Add</button>
+  </form>
+  <form class="form__box" action="/add-list" method="post">
+    <label class="form__label" for="list">New List</label
+    ><input type="hidden" value="<%= csrfToken %>" name="_csrf" /><input
+      class="form__input"
+      type="text"
+      id="list"
+      name="list"
+    />
+    <input type="hidden" name="name" value="<%= listDirectory %>" />
+    <button class="form__button" type="submit">Add</button>
+  </form>
+</div>

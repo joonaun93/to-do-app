@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List V1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- side to-do navigation panel -->
+      <div class="app__nav"><%- include('nav_contents'); %></div>
+      <!-- main to-do list app -->
+      <div class="app__main"><%- include('app_contents'); %></div>
+    </div>
+    <% if (error){ %>
+    <p class="error__message"><%= error %></p>
+    <%}%>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-size: 10px;
+  color: #734356;
+  min-height: 100vh;
+  background-color: rgb(245, 232, 199);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.app__main {
+  position: relative;
+  height: 30rem;
+  width: 30rem;
+  padding: 2rem;
+  border-radius: 20px;
+  border: 2px solid rgb(172, 112, 136);
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.15);
+  background-color: rgb(236, 204, 178);
+  font-size: 1rem;
+}
+.app__nav {
+  position: relative;
+  height: 30rem;
+  width: 10rem;
+  border-radius: 20px;
+  border: 2px solid rgb(172, 112, 136);
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.15);
+  background-color: rgb(236, 204, 178);
+  font-size: 1.2rem;
+  margin-right: 2rem;
+  overflow: hidden;
+}
+.app__nav__list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  text-transform: capitalize;
+}
+.app__nav__list-items {
+  padding: 1rem 0;
+}
+.app__nav__delete-button {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+}
+.app__nav__delete-button button {
+  background-color: rgb(172, 112, 136);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+.app__nav__delete-button button:hover {
+  cursor: pointer;
+}
+.app__title {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+.app__list-box {
+  display: flex;
+  justify-content: space-between;
+}
+.app__list-checkbox {
+  display: none;
+}
+.app__list-checkbox:checked ~ .app__list-items {
+  text-decoration: line-through;
+}
+.app__list-items {
+  cursor: pointer;
+}
+
+.welcome {
+  display: flex;
+  font-size: 1rem;
+  position: absolute;
+  width: 85%;
+  height: 2rem;
+  bottom: 1.5rem;
+  left: 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.welcome-text__user {
+  font-weight: bold;
+  color: rgb(172, 112, 136);
+}
+.welcome__log-out-button {
+  background-color: inherit;
+  border: none;
+  color: rgb(172, 112, 136);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+}
+.welcome__log-out-button:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.active {
+  background-color: rgb(245, 232, 199);
+  font-weight: bold;
+  color: rgb(172, 112, 136);
+  box-shadow: 0 0rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+.form__container {
+  position: absolute;
+  bottom: 4rem;
+  left: 2rem;
+  padding: 1rem;
+  background-color: rgb(236, 204, 178);
+  border-radius: 20px;
+  width: 85%;
+  align-items: center;
+}
+.form__box {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.5rem 0;
+}
+.form__label {
+  font-size: 1rem;
+}
+.form__input {
+  background-color: inherit;
+  border: none;
+  border-bottom: 1px solid rgb(172, 112, 136);
+  outline: none;
+  flex-grow: 1;
+  margin: 0 1rem;
+}
+.form__input:focus, .form__input:active {
+  background-color: rgb(245, 232, 199);
+}
+.form__input:not(placeholder-shown) {
+  background-color: inherit;
+}
+.form__button {
+  background-color: rgb(172, 112, 136);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+.form__button:hover {
+  cursor: pointer;
+}
+
+.login__form {
+  padding: 0.5rem;
+  position: relative;
+  font-size: 0.8rem;
+}
+.login__form:last-of-type {
+  margin-top: 1rem;
+}
+.login__header {
+  margin: 0;
+  font-size: 1rem;
+}
+.login__list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+.login__list-items:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.login__button {
+  text-align: right;
+  position: absolute;
+  right: 0;
+  bottom: 1rem;
+  background-color: rgb(172, 112, 136);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+.login__button:hover {
+  cursor: pointer;
+}
+
+.line_break {
+  border-bottom: 2px solid rgb(172, 112, 136);
+}
+
+.error__message {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  border: 1px solid red;
+  background-color: rgb(245, 129, 129);
+  color: white;
+  width: 30rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+/*# sourceMappingURL=styles.css.map */

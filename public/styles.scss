@@ -1,0 +1,260 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-size: 10px;
+  color: darken(rgb(172, 112, 136), 20%);
+  min-height: 100vh;
+  background-color: rgb(245, 232, 199);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.app {
+  &__main {
+    position: relative;
+    height: 30rem;
+    width: 30rem;
+    padding: 2rem;
+    border-radius: 20px;
+    border: 2px solid rgb(172, 112, 136);
+    box-shadow: 0 1rem 4rem rgba(black, 0.15);
+    background-color: rgb(236, 204, 178);
+    font-size: 1rem;
+  }
+
+  &__nav {
+    position: relative;
+    height: 30rem;
+    width: 10rem;
+    border-radius: 20px;
+    border: 2px solid rgb(172, 112, 136);
+    box-shadow: 0 1rem 4rem rgba(black, 0.15);
+    background-color: rgb(236, 204, 178);
+    font-size: 1.2rem;
+    margin-right: 2rem;
+    overflow: hidden;
+
+    &__list {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+      text-transform: capitalize;
+
+      &-items {
+        padding: 1rem 0;
+      }
+    }
+
+    &__delete-button {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+
+      button {
+        background-color: rgb(172, 112, 136);
+        border: none;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    &-box {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-checkbox {
+      display: none;
+    }
+
+    &-checkbox:checked ~ &-items {
+      text-decoration: line-through;
+    }
+
+    &-items {
+      cursor: pointer;
+    }
+  }
+}
+
+.welcome {
+  display: flex;
+  font-size: 1rem;
+  position: absolute;
+  width: 85%;
+  height: 2rem;
+  bottom: 1.5rem;
+  left: 2rem;
+  justify-content: space-between;
+  align-items: center;
+
+  &-text {
+    &__user {
+      font-weight: bold;
+      color: rgb(172, 112, 136);
+    }
+  }
+
+  &__log-out-button {
+    background-color: inherit;
+    border: none;
+    color: rgb(172, 112, 136);
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: bold;
+
+    &:hover {
+      cursor: pointer;
+      color: white;
+    }
+  }
+}
+
+.active {
+  background-color: rgb(245, 232, 199);
+  font-weight: bold;
+  color: rgb(172, 112, 136);
+  box-shadow: 0 0rem 1rem rgba(black, 0.4);
+}
+
+.form {
+  &__container {
+    position: absolute;
+    bottom: 4rem;
+    left: 2rem;
+    padding: 1rem;
+    // border: 2px solid rgb(11, 79, 11);
+    background-color: rgb(236, 204, 178);
+    border-radius: 20px;
+    width: 85%;
+    align-items: center;
+  }
+  &__box {
+    display: flex;
+    justify-content: space-around;
+    margin: 0.5rem 0;
+  }
+  &__label {
+    font-size: 1rem;
+  }
+
+  &__input {
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid rgb(172, 112, 136);
+    outline: none;
+    flex-grow: 1;
+    margin: 0 1rem;
+
+    &:focus,
+    &:active {
+      background-color: rgb(245, 232, 199);
+    }
+
+    &:not(placeholder-shown) {
+      background-color: inherit;
+    }
+  }
+
+  &__button {
+    background-color: rgb(172, 112, 136);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.login {
+  &__form {
+    padding: 0.5rem;
+    position: relative;
+    font-size: 0.8rem;
+
+    &:last-of-type {
+      margin-top: 1rem;
+    }
+  }
+
+  &__header {
+    margin: 0;
+    font-size: 1rem;
+  }
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+
+    &-items:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__button {
+    text-align: right;
+    position: absolute;
+    right: 0;
+    bottom: 1rem;
+    background-color: rgb(172, 112, 136);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.line_break {
+  border-bottom: 2px solid rgb(172, 112, 136);
+}
+
+.error__message {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  border: 1px solid red;
+  background-color: rgb(245, 129, 129);
+  color: white;
+  width: 30rem;
+  padding: 1rem;
+  text-align: center;
+}

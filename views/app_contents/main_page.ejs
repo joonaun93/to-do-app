@@ -1,0 +1,58 @@
+<% if (!isMainPage) { %>
+<!-- render the to do items -->
+<% if (toDoItems.items.length > 0 ){ %>
+<ul class="app__list">
+  <% toDoItems.items.forEach( l =>{ %>
+  <form class="app__list-box" action="/delete-item" method="post">
+    <input
+      class="app__list-checkbox"
+      type="checkbox"
+      value="<%= l._id %>"
+      name="checkbox"
+      onChange="this.form.submit()"
+      id="<%= l._id %>"
+    />
+    <input type="hidden" value="<%= csrfToken %>" name="_csrf" />
+    <li class="app__list-items">
+      <label for="<%= l._id %>"><%= l.text %></label>
+    </li>
+    <input type="hidden" value="<%= toDoItems.name %>" name="listName" />
+  </form>
+
+  <% }) %>
+</ul>
+<!-- if empty then render nothing to show here -->
+
+<% }else { %>
+<p class="app__no-list">
+  You are done with all your to-dos. Go take a well deserved rest!
+</p>
+<% }%>
+
+<!-- if main page, don't show any to do list -->
+<% } else {%>
+
+<ul class="app__start">
+  <li>Add a list or click on one of the list to start.</li>
+  <li>Users can create an account for free.</li>
+  <li>
+    Sign up to save your to do lists and come back to them at a later date.
+  </li>
+  <li>To delete items on the list, just click on them.</li>
+</ul>
+<% }%> <%- include('add_form'); %>
+
+<div class="welcome">
+  <% if (user){ %>
+  <p class="welcome-text">
+    Welcome back
+    <span class="welcome-text__user"><%= user.name %></span>
+  </p>
+  <div>
+    <form action="/logout" method="post">
+      <button class="welcome__log-out-button">Logout</button>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+    </form>
+  </div>
+  <% } %>
+</div>

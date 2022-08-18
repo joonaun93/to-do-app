@@ -1,0 +1,23 @@
+<% if (isAuthenticated){ %>
+<!-- for authentication page -->
+<% if (lists.length > 0 ){ %>
+<ul class="app__nav__list">
+  <% lists.forEach( l =>{ %>
+  <li
+    class="app__nav__list-items <%=listDirectory === l.name ? 'active' : null %>"
+  >
+    <a href="<%= l.name %>"><%= l.name %></a>
+  </li>
+  <% }) %>
+</ul>
+<% } %> <% if(path){ %>
+<form class="app__nav__delete-button" action="/delete-list" method="post">
+  <input type="hidden" value="<%= listDirectory %>" name="listName" />
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>" /><button>
+    Delete List
+  </button>
+</form>
+<%} %>
+<!-- for authentication page -->
+
+<% } %>
