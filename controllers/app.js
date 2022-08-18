@@ -9,6 +9,7 @@ exports.getMain = async (req, res, next) => {
   const lists = await List.find({ user: user });
 
   const errorMessage = req.flash("error");
+  const successMessage = req.flash("success");
 
   res.render("main", {
     user: user,
@@ -17,6 +18,7 @@ exports.getMain = async (req, res, next) => {
     isMainPage: true,
     path: null,
     error: errorMessage.length > 0 ? errorMessage[0] : null,
+    success: successMessage.length > 0 ? successMessage[0] : null,
   });
 };
 
@@ -78,6 +80,7 @@ exports.getList = async (req, res, next) => {
     listDirectory: list,
     isMainPage: false,
     error: errorMessage.length > 0 ? errorMessage[0] : null,
+    success: null,
   });
 };
 
@@ -138,14 +141,19 @@ exports.postLogIn = async (req, res, next) => {
 exports.postSignUp = async (req, res, next) => {
   const signUpEmail = req.body.signUpEmail;
   const signUpPassword = req.body.signUpPassword;
-  const signUpName =
-    req.body.signUpName[0].toUpperCase() +
-    req.body.signUpName.slice(1).toLowerCase();
+  const Name = req.body.signUpName;
+  let signUpName = "";
+
+  if (Name) {
+    signUpName =
+      req.body.signUpName[0].toUpperCase() +
+      req.body.signUpName.slice(1).toLowerCase();
+  }
 
   try {
     const hashPassword = await bcrypt.hash(signUpPassword, saltRounds);
 
-    const user = await User.findOne({ user: signUpEmail });
+    const user = await User.findOne({ email: signUpEmail });
 
     if (!user) {
       const newUser = await User.create({
@@ -154,6 +162,7 @@ exports.postSignUp = async (req, res, next) => {
         password: hashPassword,
         list: [],
       });
+      req.flash("success", "User created, please proceed to login");
     } else {
       req.flash("error", "Email already exists! Please try again.");
     }
